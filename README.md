@@ -38,34 +38,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## Diagrama de Fluxo
 ```mermaid
 graph TD;
-    A[Inicio]
-    B[User abre o Site]
-    C[Site é Aberto]
-    D{User escreve a resposta}
-    E[Exibir resposta correta N]
-    F[Botão para voltar a pagina]
-    G{Randomiza 1/10}
-    H[Erro Convencional]
-    I[Erro 'especial']
-    J[Reinicia a pagina]
-    A --> B;
-    B --> C;
-    C --> D;
-    D -->|Resposta correta N| E;
-    D -->|Resposta incorreta| G;
-    E --> F;
-    F --> C;
-    G -->|90%| H;
-    G -->|10%| I;
-    H --> J;
-    I --> J;
-    J --> C;
-```
-
-
-## Diagrama de Fluxo 2
-```mermaid
-graph TD;
     A[Inicio];
     B[Participante entra no site]
     B1{Participante tem cadastro?}
