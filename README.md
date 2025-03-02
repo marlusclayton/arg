@@ -68,27 +68,45 @@ graph TD;
 graph TD;
     A[Inicio];
     B[Participante entra no site]
+    B1{Participante tem cadastro?}
+    B2{Participante cria cadastro}
     C[Exibir Saudação]
     D[Participante entra texto]
     E{Texto possui resposta}
     F[Exibir resposta do texto]
     G[Participante clica no botao para voltar]
     H{Randomizar erro}
-
     I[Exibir Erro convencional]
     J[Exibir Erro especial]
+    E1{Texto vai parte do enigma?}
+    E2{As partes anteriores já foram respondidas?}
+    K[Participante clica em linha do tempo]
+    L[Verificar linha do tempo do participante]
+    M[Participante clica na linha do tempo no qual ele quer]
+
     A --> B;
-    B --> C;
+    B --> B1;
+    B1 -->|Sim| C;
+    B1 -->|Não|B2; 
+    B2 --> C;
     C --> D;
     D --> E;
-    E -->|Sim| F;
-    E --> |Não| H;
+    E -->|Sim| E1;
+    E -->|Não| H;
+    E1 -->|Sim| E2;
+    E1 -->|Não| F;
+    E2 -->|Sim| F;
+    E2 -->|Não| H;
     F --> G;
     G --> C;
     H -->|Erro convencional| I;
     H -->|Erro especial| J;
-    I --> C;
-    J --> C;
+    I --> G;
+    J --> G;
+    C --> K;
+    K --> L;
+    L --> M;
+    M --> F;
 
 
 
